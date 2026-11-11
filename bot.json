@@ -1,0 +1,30 @@
+{
+    "bot_username": "MyAgentBot",
+    "chat_id": null,
+    "priority_commands": [
+        {
+            "command": "/stop",
+            "description": "Immediately interrupts and cancels the currently active agent task.",
+            "args": []
+        }
+    ],
+    "standard_commands": [
+        {
+            "command": "/start",
+            "description": "Initializes a session with the bot and establishes the connection.",
+            "args": []
+        },
+        {
+            "command": "/p",
+            "description": "Sends a direct text prompt to the agent runtime for processing.",
+            "args": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "description": "The primary prompt or query text for the agent."
+                }
+            ]
+        }
+    ]
+}
