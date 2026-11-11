@@ -16,13 +16,6 @@ class CommsBot:
         
         self.message_queue: asyncio.Queue[Dict[str, Any]] = asyncio.Queue()
         self.config = self._load_config()
-
-        # Load chat_id from JSON config if present
-        self.chat_id: Optional[int] = self.config.get("chat_id")
-
-        # Commands that should interrupt the agent immediately (e.g. /stop)
-        self.priority_commands = priority_commands or set(self.priority_cmds.keys())
-        self.bot_username = self.config.get("bot_username")
         
         # Track the currently running agent task so it can be cancelled
         self.active_agent_task: Optional[asyncio.Task] = None
@@ -42,6 +35,7 @@ class CommsBot:
                 data = json.load(f)
                 
                 self.bot_username = data.get("bot_username")
+                self.chat_id: Optional[int] = data.get("chat_id")
                 
                 for item in data.get("priority_commands", []):
                     cmd = item.get("command")
