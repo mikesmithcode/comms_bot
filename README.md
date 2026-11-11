@@ -39,7 +39,7 @@ comms_bot/
 │       └── bot.py
 ├── bot.json
 ├── .env
-├── run_interactive.py
+├── test_interactive.py
 ├── README.md
 └── pyproject.toml
 ```
@@ -49,7 +49,7 @@ comms_bot/
 Add comms_bot as a local dependency in your project's pyproject.toml or install it directly using uv:
 
 ```Bash
-uv add comms_bot
+uv add git+https://github.com/mikesmithcode/comms_bot.git
 ```
 
 ## Configuration
