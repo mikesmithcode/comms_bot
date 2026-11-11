@@ -179,7 +179,7 @@ class CommsBot:
             asyncio.create_task(self.send_msg(help_response))
             return
 
-        is_priority = any(stripped_text.lower().startswith(cmd) for cmd in self.priority_commands)
+        is_priority = any(stripped_text.lower().startswith(cmd) for cmd in self.priority_cmds)
 
         message_packet = {
             "chat_id": chat_id,
