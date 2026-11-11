@@ -5,15 +5,31 @@ import asyncio
 from typing import Optional, Dict, Any, Set
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
+from telegram.request import HTTPXRequest
+from telegram.ext import ApplicationBuilder
+
 
 
 class CommsBot:
     def __init__(self, config_path="bot.json"):
         load_dotenv()
         BOT_TOKEN = os.getenv("TELEGRAM_API_KEY") or ""
-        self.config_path = config_path
-        self.app = ApplicationBuilder().token(BOT_TOKEN).build()
+        # Inside your CommsBot __init__ or start method where ApplicationBuilder is called:
+        request_config = HTTPXRequest(
+            connect_timeout=30.0,
+            read_timeout=30.0,
+            write_timeout=30.0,
+            pool_timeout=30.0,
+        )
+
+        self.app = (
+            ApplicationBuilder()
+            .token(BOT_TOKEN)
+            .request(request_config)
+            .build()
+        )
         
+        self.config_path = config_path        
         self.message_queue: asyncio.Queue[Dict[str, Any]] = asyncio.Queue()
         self.config = self._load_config()
         
