@@ -59,9 +59,11 @@ Create a .env file in your workspace root and insert the API token you received 
 
 Code snippet
 TELEGRAM_API_KEY="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
+
 2. Command Schema & State (bot.json)
 Create a bot.json file in your workspace root. This file manages your bot's username, definitions for standard and priority commands, and automatically persists your active chat_id when the bot locks onto a conversation.
 
+```json
 Example bot.json:
 JSON
 {
@@ -94,6 +96,7 @@ JSON
         }
     ]
 }
+```
 
 ## Examples & Templates
 
