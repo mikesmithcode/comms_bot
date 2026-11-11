@@ -8,7 +8,7 @@ from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filte
 
 
 class CommsBot:
-    def __init__(self, priority_commands: Optional[Set[str]] = None, config_path="bot.json"):
+    def __init__(self, config_path="bot.json"):
         load_dotenv()
         BOT_TOKEN = os.getenv("TELEGRAM_API_KEY") or ""
         self.config_path = config_path
