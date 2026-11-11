@@ -95,6 +95,9 @@ JSON
     ]
 }
 
-## Usage & Testing
+## Examples & Templates
 
-You can use the interactive test runner script (test_interactive.py) to verify incoming commands from Telegram and send replies or assets back from your terminal.
+To help you get started quickly, the repository includes ready-to-use template files:
+
+* **`bot.json`**: A baseline configuration file defining your bot's command schemas and state. Copy or rename this in your project root and fill in your bot's username.
+* **`test_interactive.py`**: A complete test harness utilising `aioconsole` to let you chat with your bot directly from your terminal while it polls Telegram in the background.
